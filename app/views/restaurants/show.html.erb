@@ -1,0 +1,39 @@
+<h1><%= @restaurant.name %></h1>
+<div class="container bg-info">
+  <div class="border border-dark">
+    <h4>Address:</h4>
+    <p><%= @restaurant.address %></p>
+  </div>
+  <div>
+    <h4>Phone Number:</h4>
+    <p><%= @restaurant.phone_number %></p>
+  </div>
+  <div>
+    <h4>Category:</h4>
+    <p><%= @restaurant.category %></p>
+  </div>
+  <div>
+    <h3>Reviews:</h3>
+    <ul class="list-group">
+      <% @reviews.each do |review| %>
+        <li class="list-group-item list-group-item-light">
+          <div class=container>
+            <div class="row">
+              <div class="col">
+                <p><%=review.rating%></p>
+              </div>
+              <div class="col-11">
+                <p><%=review.content%></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="d-inline-flex">
+      <%= button_to "Add a review", new_restaurant_review_path(@restaurant), method: :get%>
+      <%= button_to "Back to Restaurants List", restaurants_path, method: :get%>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,12 @@
+<h1>Restaurants</h1>
+<ul class="list-group list-group-flush">
+  <% @restaurants.each do |restaurant| %>
+    <li class="list-group-item list-group-item-light">
+      <%= link_to restaurant_path(restaurant) do %>
+        <p>Name: <%= restaurant.name %></p>
+        <p>Category: <%= restaurant.category %></p>
+      <% end %>
+    </li>
+  <% end  %>
+</ul>
+<%= button_to "Create new Restaurant", new_restaurant_path, method: :get%>
